@@ -1,79 +1,38 @@
 <launch>
-  <!-- GAZEBO ARGUMENTS -->
-  <env name="GAZEBO_RESOURCE_PATH" value="$(find turtlebot3_gazebo)/models/autorace/ground_picture" />
-  <!-- Run Gazebo headless -->
-  <arg name="headless"                              value="false"/>
-  <!-- Name of the world -->
-  <arg name="world"                                 value="empty"/>
-  <!-- Path to the world file -->
-  <arg name="world_file"                            value="$(find mrob_gazebo)/worlds/$(arg world).world"/>
-    <!-- Start paused -->
-  <arg name="paused"                                value="false"/>
-  <!-- Use simulation clock -->
-  <arg name="use_sim_time"                          value="true"/>
-  <!-- Debug mode -->
-  <arg name="debug"                                 value="false"/>
-  <!-- Verbose mode -->
-  <arg name="verbose"                               value="true"/>
-  <!-- Enable/disable Gazebo GUI -->
-  <arg name="run_gui"                               value="true"/>
   
-  <!-- Load Gazebo world -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name"        value="$(arg world_file)"/>
-    <arg name="paused"            value="$(arg paused)"/>
-    <arg name="use_sim_time"      value="$(arg use_sim_time)"/>
-    <arg name="gui"               value="$(arg run_gui)"/>
-    <arg name="headless"          value="$(arg headless)"/>
-    <arg name="debug"             value="$(arg debug)"/>
-    <arg name="verbose"           value="$(arg verbose)"/>
-  </include>
+  <!-- ARGUMENTS FOR A ROBOT-->
+  <arg name="robot_name" default="my_robot"/>
+  <arg name="x_pos"         default = "0"/>
+  <arg name="y_pos"         default = "0"/>
+  <arg name="z_pos"         value="0"/> 
+  <arg name="robot_description"   value="robot_description"/>
 
   <!-- LAUNCHING ROBOT 1 -->
-  <group ns="robot_0">
-
-    <arg name="robot_name"    value="leader" />
-    <arg name="x_pos"         value = "3"/>
-    <arg name="y_pos"         value = "3"/>
-    <arg name="z_pos"         value="0"/> 
+  <group ns="$(arg robot_name)">
+  
     <param name="tf_prefix"   value="$(arg robot_name)"/>
-    <arg name="robot_description"   value="robot_description"/>
 
     <!-- Spawn robot in Gazebo -->
     <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" 
       args="-urdf -model $(arg robot_name) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param $(arg robot_description)" output="screen"/>
     
     <include file="$(find mrob_control)/launch/control.launch">
-    <arg name="laser_visual"        value="true"/>
-    <arg name="camera_on"           value="false"/>
-    <arg name="robot_namespace"     value="$(arg robot_name)"/>
-    <arg name="robot_description"   value="$(arg robot_description)"/>
-    <arg name="enable_ekf"          value="false" />
+      <arg name="laser_visual"        value="false"/>
+      <arg name="camera_on"           value="true"/>
+      <arg name="robot_namespace"     value="$(arg robot_name)"/>
+      <arg name="robot_description"   value="$(arg robot_description)"/>
+      <arg name="enable_ekf"          value="false" />
     </include>
-    
+
+    <!-- FOLLOWER'S NODES -->
+    <!-- Teleop twist for testing -->
+    <node if="$(eval robot_name == 'follower')" name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
+
+    <!-- LEADER'S NODES -->
+    <!--Highlevel Controller Node-->	
+    <node if="$(eval robot_name == 'leader')" name="mrob_highlevel_controller" pkg="mrob_highlevel_controller" type="controller" output="screen"> 
+      <rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
+    </node>
+
   </group>
-
-  <!-- LAUNCHING ROBOT 1 -->
-  <group ns="robot_1">
-    <arg name="robot_name"  value="follower" />
-    <arg name="x_pos" value = "1"/>
-    <arg name="y_pos" value = "3"/>
-    <arg name="z_pos" value="0"/> 
-    <param name="tf_prefix" value="$(arg robot_name)"/>
-    <arg name="robot_namespace" value="$(arg robot_name)"/>
-    <arg name="robot_description"   value="robot_description"/>
-
-    <!-- Spawn robot in Gazebo -->
-    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" 
-      args="-urdf -model $(arg robot_name) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param $(arg robot_description)" output="screen"/>
-    
-    <include file="$(find mrob_control)/launch/control.launch">
-    <arg name="laser_visual"        value="true"/>
-    <arg name="camera_on"           value="false"/>
-    <arg name="robot_namespace"     value="$(arg robot_namespace)"/>
-    <arg name="robot_description"   value="$(arg robot_description)"/>
-    <arg name="enable_ekf"          value="false" />
-    </include>
-  </group>
-
 </launch> 
