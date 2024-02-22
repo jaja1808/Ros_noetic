@@ -1,0 +1,8 @@
+prefix=/home/esirem/Documents/Project_ws/catkin_ws/devel
+
+Name: mrob_gazebo
+Description: Description of mrob_gazebo
+Version: 0.0.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: turtlebot3_gazebo pointcloud_to_laserscan

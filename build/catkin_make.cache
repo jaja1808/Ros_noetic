@@ -1,0 +1,2 @@
+mrob_highlevel_controller:robotics_course/mrob_control:robotics_course/mrob_description:robotics_course/mrob_gazebo:robotics_course/robotics_course:turtlebot3_simulations/turtlebot3_fake:turtlebot3_simulations/turtlebot3_gazebo:turtlebot3_simulations/turtlebot3_simulations:two_robot_control
+-DCATKIN_DEVEL_PREFIX=/home/esirem/Documents/Project_ws/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/esirem/Documents/Project_ws/catkin_ws/install -G Unix Makefiles
