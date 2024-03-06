@@ -1,0 +1,8 @@
+prefix=/home/esirem/Documents/Project_ws/catkin_ws/devel
+
+Name: mrob_highlevel_controller
+Description: Description of mrob_highlevel_controller
+Version: 0.0.2
+Cflags: -I/home/esirem/Documents/Project_ws/catkin_ws/src/mrob_highlevel_controller/include -I/usr/include/eigen3
+Libs: -L${prefix}/lib -lmrob_highlevel_controller
+Requires: roscpp
