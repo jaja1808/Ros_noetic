@@ -34,5 +34,7 @@
       <rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
     </node>
 
+    <node name = "rviz" pkg = "rviz" type = "rviz" args = "-d $(find turtlebot3_description)/rviz/turtlebot3_description.rviz"/>
+
   </group>
 </launch> 
