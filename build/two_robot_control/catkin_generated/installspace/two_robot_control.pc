@@ -1,0 +1,8 @@
+prefix=/home/esirem/Documents/Project_ws/catkin_ws/install
+
+Name: two_robot_control
+Description: Description of two_robot_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
