@@ -7,11 +7,10 @@
   <arg name="enable_ekf"                            default="false"/>
   <arg name="camera_on"                             default="false"/>
   <arg name="lidar_visual"                          default="false"/>
+  
 
-  <!-- Name of the world -->
-  <arg name="world"                                 default="empty"/>
   <!-- Path to the world file -->
-  <arg name="world_file"                            default="$(find mrob_gazebo)/worlds/$(arg world).world"/>
+  <arg name="world_file"                            default="$(find mrob_highlevel_controller)/worlds/singlePillar.world"/>
 
   <!-- Start paused -->
   <arg name="paused"                                default="false"/>
@@ -21,7 +20,6 @@
   <arg name="debug"                                 default="false"/>
   <!-- Verbose mode -->
   <arg name="verbose"                               default="true"/>
-
   <!-- Enable/disable Gazebo GUI -->
   <arg name="run_gui"                               default="true"/>
 

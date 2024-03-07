@@ -30,9 +30,9 @@
 
     <!-- LEADER'S NODES -->
     <!--Highlevel Controller Node-->	
-    <!-- <node if="$(eval robot_name == 'leader')" name="mrob_highlevel_controller" pkg="mrob_highlevel_controller" type="controller" output="screen"> 
+    <node if="$(eval robot_name == 'leader')" name="mrob_highlevel_controller" pkg="mrob_highlevel_controller" type="controller" output="screen"> 
       <rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
-    </node> -->
+    </node>
     <node if="$(eval robot_name == 'leader')" name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
 
   </group>
