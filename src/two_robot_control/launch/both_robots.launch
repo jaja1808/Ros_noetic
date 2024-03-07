@@ -35,7 +35,7 @@
         <param name="marker_size"        value="1"/>
         <param name="marker_id"          value="17"/>
         <param name="reference_frame"    value=""/>  
-        <param name="camera_frame"       value="follower/camera_link"/>
+        <param name="camera_frame"       value="follower/robot_state_publisher"/> 
         <param name="marker_frame"       value="aruco_marker_frame" />
         <param name="corner_refinement"  value="LINES" />
     </node>
