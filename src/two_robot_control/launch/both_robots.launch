@@ -28,15 +28,15 @@
     <!-- Teleop twist for testing -->
     <node if="$(eval robot_name == 'follower')" name="rviz" pkg="rviz" type="rviz" args="-d $(find two_robot_control)/rviz/robot.rviz"/>
     
-    <node if="$(eval robot_name == 'follower')" pkg="aruco_ros" type="single" name="aruco_single">
+    <node if="$(eval robot_name == 'follower')" pkg="aruco_ros" type="single" name="aruco_single" output="screen">
         <remap from="/camera_info" to="/follower/camera/camera_info"/>
         <remap from="/image" to="/follower/camera/image" />
         <param name="image_is_rectified" value="True"/>
-        <param name="marker_size"        value="1"/>
-        <param name="marker_id"          value="17"/>
+        <param name="marker_size"        value="0.5"/>
+        <param name="marker_id"          value="0"/>
         <param name="reference_frame"    value=""/>  
-        <param name="camera_frame"       value="follower/robot_state_publisher"/> 
-        <param name="marker_frame"       value="aruco_marker_frame" />
+        <param name="camera_frame"       value="follower/camera_frame"/> 
+        <param name="marker_frame"       value="follower/aruco_marker_frame" />
         <param name="corner_refinement"  value="LINES" />
     </node>
 
