@@ -34,14 +34,14 @@
     <arg name="verbose"           value="$(arg verbose)"/>
   </include>
 
-  <!-- 1st ROBOT ARGUMENTS -->
+  <!-- 1st ROBOT ARGUMENTS: leader -->
   <include file="$(find two_robot_control)/launch/both_robots.launch">
     <arg name="robot_name" value="leader"/>
     <arg name="x_pos"         value = "2"/>
     <arg name="y_pos"         value = "2"/>
   </include>
 
-  <!-- 2nd ROBOT ARGUMENTS -->
+  <!-- 2nd ROBOT ARGUMENTS: follower -->
   <include file="$(find two_robot_control)/launch/both_robots.launch">
     <arg name="robot_name" value="follower"/>
     <arg name="x_pos"         value = "1"/>

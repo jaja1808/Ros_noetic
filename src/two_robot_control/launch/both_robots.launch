@@ -31,7 +31,10 @@
     <!-- LEADER'S NODES -->
     <!--Highlevel Controller Node-->	
     <node if="$(eval robot_name == 'leader')" name="mrob_highlevel_controller" pkg="mrob_highlevel_controller" type="controller" output="screen"> 
+      <param name="angle_min" value="-30.0" />
+      <param name="angle_max" value="30.0" />
       <rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
+      <remap from ="/cmd_vel" to ="/leader/cmd_vel" />
     </node>
     <node if="$(eval robot_name == 'leader')" name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
 
