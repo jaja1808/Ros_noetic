@@ -1949,6 +1949,32 @@ turtlebot3_drive/fast:
 .PHONY : turtlebot3_drive/fast
 
 #=============================================================================
+# Target rules for targets named two_robot_control_node
+
+# Build rule for target.
+two_robot_control_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 two_robot_control_node
+.PHONY : two_robot_control_node
+
+# fast build rule for target.
+two_robot_control_node/fast:
+	$(MAKE) -f two_robot_control/CMakeFiles/two_robot_control_node.dir/build.make two_robot_control/CMakeFiles/two_robot_control_node.dir/build
+.PHONY : two_robot_control_node/fast
+
+#=============================================================================
+# Target rules for targets named two_robot_control_core
+
+# Build rule for target.
+two_robot_control_core: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 two_robot_control_core
+.PHONY : two_robot_control_core
+
+# fast build rule for target.
+two_robot_control_core/fast:
+	$(MAKE) -f two_robot_control/CMakeFiles/two_robot_control_core.dir/build.make two_robot_control/CMakeFiles/two_robot_control_core.dir/build
+.PHONY : two_robot_control_core/fast
+
+#=============================================================================
 # Target rules for targets named uuid_msgs_generate_messages_py
 
 # Build rule for target.
@@ -2449,6 +2475,8 @@ help:
 	@echo "... turtlebot3_msgs_generate_messages_lisp"
 	@echo "... turtlebot3_fake_node"
 	@echo "... turtlebot3_drive"
+	@echo "... two_robot_control_node"
+	@echo "... two_robot_control_core"
 	@echo "... uuid_msgs_generate_messages_py"
 	@echo "... uuid_msgs_generate_messages_lisp"
 	@echo "... uuid_msgs_generate_messages_eus"

@@ -664,6 +664,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/DependInfo.cmake"
   "turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/DependInfo.cmake"
+  "two_robot_control/CMakeFiles/two_robot_control_node.dir/DependInfo.cmake"
+  "two_robot_control/CMakeFiles/two_robot_control_core.dir/DependInfo.cmake"
   "robotics_course/mrob_description/CMakeFiles/uuid_msgs_generate_messages_py.dir/DependInfo.cmake"
   "robotics_course/mrob_description/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "robotics_course/mrob_description/CMakeFiles/uuid_msgs_generate_messages_eus.dir/DependInfo.cmake"

@@ -50,4 +50,6 @@
     <arg name="y_pos"         value = "2"/>
   </include>
   
+  <!-- <node pkg="gazebo_ros" type="spawn_model" name="" 
+  args="-sdf -model model.sdf -x 1.0 -y 1.0 -z 1.0" output="screen"/> -->
 </launch>

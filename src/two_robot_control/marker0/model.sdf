@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><sdf version="1.6">
   <model name="Marker0">
-    <static>false</static>
+    <static>true</static>
     <link name="link">
       <visual name="visual">
         <geometry>
