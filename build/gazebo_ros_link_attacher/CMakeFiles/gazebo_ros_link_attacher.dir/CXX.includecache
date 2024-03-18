@@ -47,8 +47,6 @@ ros/message_operations.h
 -
 
 /home/esirem/Documents/Project_ws/catkin_ws/src/gazebo_ros_link_attacher/include/gazebo_ros_link_attacher.h
-boost/thread/recursive_mutex.hpp
--
 ros/ros.h
 -
 sdf/sdf.hh
@@ -79,8 +77,6 @@ gazebo_ros_link_attacher/AttachResponse.h
 /home/esirem/Documents/Project_ws/catkin_ws/src/gazebo_ros_link_attacher/include/gazebo_ros_link_attacher/AttachResponse.h
 
 /home/esirem/Documents/Project_ws/catkin_ws/src/gazebo_ros_link_attacher/src/gazebo_ros_link_attacher.cpp
-boost/thread/recursive_mutex.hpp
--
 gazebo/common/Plugin.hh
 -
 ros/ros.h

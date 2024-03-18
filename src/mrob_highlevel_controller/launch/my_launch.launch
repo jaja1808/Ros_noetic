@@ -1,0 +1,31 @@
+<launch>  
+	<!--Gazebo Launch-->	
+	<include file = "$(find mrob_gazebo)/launch/mrob_gazebo.launch">    
+ 		<arg name="world_file" value="$(find mrob_highlevel_controller)/worlds/singlePillar.world"/> 
+		<arg name="x_pos" value="3"/>
+		<arg name="y_pos" value="3"/>
+		<arg name = "enable_ekf" value = "true"/>  
+ 	</include>
+ 	
+	<!--Highlevel Controller Node-->	
+	<node name="mrob_highlevel_controller" pkg="mrob_highlevel_controller" type="controller" output="screen"> 
+	 	<rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
+	</node>
+	
+	<!--Client Controller Node-->	
+	<!--node name="mrob_obstactle_detector" pkg="mrob_highlevel_controller" type="vel_command" output="screen"> 
+	 	<rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
+	</node-->
+
+	<!-- IMU Client Controller Node-->	
+	<node name="mrob_imu_detector" pkg="mrob_highlevel_controller" type="imu_based_command" output="screen"> 
+	 	<rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
+	</node>
+
+	<!--RQT Multiplot-->
+	<node name="rqt_multiplot" pkg="rqt_multiplot" type="rqt_multiplot" output="screen"> 
+		<remap from="odom" to="/odometry/filtered"/>
+	</node>
+	<!--Launch rviz-->	
+	<node type="rviz" name="rviz" pkg="rviz" args="-d $(find mrob_highlevel_controller)/rviz/my_rviz_file.rviz" />
+</launch>

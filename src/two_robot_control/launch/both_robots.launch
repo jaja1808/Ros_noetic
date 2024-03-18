@@ -41,11 +41,15 @@
     </node>
 
     <!-- LEADER'S NODES -->
+    
     <!--Highlevel Controller Node-->	
     <!-- <node if="$(eval robot_name == 'leader')" name="mrob_highlevel_controller" pkg="mrob_highlevel_controller" type="controller" output="screen"> 
       <rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
     </node> -->
-    <node if="$(eval robot_name == 'follower')" name="two_robot_control" pkg="two_robot_control" type="follow" output="screen"/>
+    <node if="$(eval robot_name == 'leader')" name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
+
+    <!-- Following the leader node (follow) -->
+    <node if="$(eval robot_name == 'follower')" name="two_robot_control" pkg="two_robot_control" type="follow" output="screen">
       <rosparam command = "load" file = "$(find two_robot_control)/parameters/params.yaml"/>
     </node>
 

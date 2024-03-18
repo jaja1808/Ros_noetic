@@ -12,8 +12,8 @@ namespace two_robot_control{
    Aruco_follower::Aruco_follower(ros::NodeHandle& nodeHandle): nodeHandle_(nodeHandle){
 
     // Declare Aruco Subscriber parameters
-    std::string aruco_topic = "/follower/aruco_single/position";
-    int aruco_queue = 100;
+    std::string aruco_topic;
+    int aruco_queue ;
     // Declare Follower Velocity Publisher
     std::string cmd_vel_topic;
     int cmd_vel_queue;
@@ -64,7 +64,10 @@ void Aruco_follower::arucoCallback(const geometry_msgs::Vector3Stamped::ConstPtr
 
     // Move robot
     move.linear.x = linear_vel;
-    move.angular.z = angular_vel * angle;
+    move.angular.y = angular_vel * angle;
+
+    //Publisher to Publish the velocities
+    Velocity_Publisher_.publish(move);
 }
 }
 

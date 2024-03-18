@@ -9,7 +9,7 @@
   <arg name="lidar_visual"                          default="false"/>
 
   <!-- Name of the world -->
-  <arg name="world"                                 default="empty"/>
+  <arg name="world"                                 default="turtlebot3_autorace"/>
   <!-- Path to the world file -->
   <arg name="world_file"                            default="$(find mrob_gazebo)/worlds/$(arg world).world"/>
 
