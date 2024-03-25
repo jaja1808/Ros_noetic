@@ -56,15 +56,20 @@ void Aruco_follower::arucoCallback(const geometry_msgs::Vector3Stamped::ConstPtr
     ROS_INFO_STREAM("Values of x: " << x << "y: "<< y << "z: " << z);
 
     // Angle Position of the leader
-    float angle = atan2f(y, x);
+    float angle = atan2f(z, y);
     ROS_INFO("Angle with atan is: %f", angle);
 
     // movement to be published
     geometry_msgs::Twist move;
 
-    // Move robot
-    move.linear.x = linear_vel;
-    move.angular.y = angular_vel * angle;
+    if (true){
+        //Move robot
+        move.linear.x = linear_vel;
+        move.angular.y = angular_vel * angle;
+    }else{
+        move.linear.x = 0;
+        move.angular.y = 0;
+    }
 
     //Publisher to Publish the velocities
     Velocity_Publisher_.publish(move);

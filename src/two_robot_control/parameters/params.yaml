@@ -8,4 +8,4 @@ cmd_vel_queue: 100
 
 # Speeds
 linear_vel: 0.1
-angular_vel: 0.2
+angular_vel: 0.5
