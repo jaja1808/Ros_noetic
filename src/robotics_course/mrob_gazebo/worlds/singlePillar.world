@@ -10,6 +10,26 @@
     <include>
       <uri>model://ground_plane</uri>
     </include>
+
+    <!-- Aruco marker -->
+    <model name='Marker0'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://marker0/meshes/Marker0.dae</uri>
+              <scale>0.2 0.2 0.2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.95 2 0.21 0 -0 0</pose>
+    </model>
+    
     <!-- Cylinder -->
     <model name='unit_cylinder'>
       <pose frame=''>5 3.5 2.5 0 -0 0</pose>

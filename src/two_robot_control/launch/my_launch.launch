@@ -39,17 +39,18 @@
   <!-- 1st ROBOT ARGUMENTS -->
   <include file="$(find two_robot_control)/launch/both_robots.launch">
     <arg name="robot_name" value="leader"/>
-    <arg name="x_pos"         value = "2"/>
-    <arg name="y_pos"         value = "2"/>
+    <arg name="x_pos"         value = "2.0"/>
+    <arg name="y_pos"         value = "2.0"/>
   </include>
 
   <!-- 2nd ROBOT ARGUMENTS -->
   <include file="$(find two_robot_control)/launch/both_robots.launch">
     <arg name="robot_name" value="follower"/>
-    <arg name="x_pos"         value = "1"/>
-    <arg name="y_pos"         value = "2"/>
+    <arg name="x_pos"         value = "1.0"/>
+    <arg name="y_pos"         value = "2.0"/>
   </include>
   
-  <!-- <node pkg="gazebo_ros" type="spawn_model" name="" 
-  args="-sdf -model model.sdf -x 1.0 -y 1.0 -z 1.0" output="screen"/> -->
+    <!-- Attach the marker to the leader robot -->
+  <node name="attach_marker" pkg="gazebo_ros_link_attacher" type="aruco_robot_attach.py"/>
+  
 </launch>

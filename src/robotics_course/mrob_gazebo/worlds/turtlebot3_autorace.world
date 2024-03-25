@@ -54,6 +54,25 @@
        <pose> 0.95 -0.758 0.125 0 -0 0.0</pose>
     </include>
 
+    <!-- Aruco marker -->
+    <model name='Marker0'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://marker0/meshes/Marker0.dae</uri>
+              <scale>0.2 0.2 0.2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.95 2 0.21 0 -0 0</pose>
+    </model>
+
     <model name='ground'>
       <pose frame=''>0 0 -0.1 0 -0 0</pose>
       <static>1</static>

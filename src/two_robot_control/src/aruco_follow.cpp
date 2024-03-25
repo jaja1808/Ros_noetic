@@ -49,6 +49,7 @@ void Aruco_follower::arucoCallback(const geometry_msgs::Vector3Stamped::ConstPtr
     //Speed 
     float linear_vel;
     float angular_vel;
+    
     // getting parameters
     nodeHandle_.getParam("linear_vel", linear_vel);
     nodeHandle_.getParam("angular_vel", angular_vel);
@@ -56,26 +57,17 @@ void Aruco_follower::arucoCallback(const geometry_msgs::Vector3Stamped::ConstPtr
     ROS_INFO_STREAM("Values of x: " << x << "y: "<< y << "z: " << z);
 
     // Angle Position of the leader
-    float angle = atan2f(z, y);
+    float angle = atan2f(z, x);
     ROS_INFO("Angle with atan is: %f", angle);
 
     // movement to be published
     geometry_msgs::Twist move;
 
-    if (true){
-        //Move robot
-        move.linear.x = linear_vel;
-        move.angular.y = angular_vel * angle;
-    }else{
-        move.linear.x = 0;
-        move.angular.y = 0;
-    }
+    // Move robot
+    move.linear.x = linear_vel;
+    move.angular.y = angular_vel * angle;
 
     //Publisher to Publish the velocities
     Velocity_Publisher_.publish(move);
 }
 }
-
-/*
-[ INFO] [1710506040.062446225]: ArUco node will publish pose to TF with follower/camera_frame as parent and follower/aruco_marker_frame as child.
-*/
