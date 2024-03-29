@@ -28,6 +28,7 @@
     <!-- Teleop twist for testing -->
     <node if="$(eval robot_name == 'follower')" name="rviz" pkg="rviz" type="rviz" args="-d $(find two_robot_control)/rviz/robot.rviz"/>
     
+    <!-- Aruco tracker Node -->
     <node if="$(eval robot_name == 'follower')" pkg="aruco_ros" type="single" name="aruco_single" output="screen">
         <remap from="/camera_info" to="/follower/camera/camera_info"/>
         <remap from="/image" to="/follower/camera/image" />
@@ -41,11 +42,15 @@
     </node>
 
     <!-- LEADER'S NODES -->
-    
     <!--Highlevel Controller Node-->	
     <!-- <node if="$(eval robot_name == 'leader')" name="mrob_highlevel_controller" pkg="mrob_highlevel_controller" type="controller" output="screen"> 
       <rosparam command = "load" file = "$(find mrob_highlevel_controller)/params/parameters.yaml"/>
     </node> -->
+    
+    <!-- Spawn marker on the robot -->
+    <node if="$(eval robot_name == 'leader')" name="spawn_marker_on_robot" pkg="two_robot_controler" type="spawn_marker_on_robot.py" output="screen" />
+
+    <!-- Teleop twist -->
     <node if="$(eval robot_name == 'leader')" name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
 
     <!-- Following the leader node (follow) -->

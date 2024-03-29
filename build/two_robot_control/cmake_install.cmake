@@ -52,3 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/two_robot_control" TYPE FILE FILES "/home/esirem/Documents/Project_ws/catkin_ws/src/two_robot_control/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/two_robot_control" TYPE PROGRAM FILES "/home/esirem/Documents/Project_ws/catkin_ws/src/two_robot_control/scripts/aruco_robot_attach.py")
+endif()
+

@@ -50,7 +50,4 @@
     <arg name="y_pos"         value = "2.0"/>
   </include>
   
-    <!-- Attach the marker to the leader robot -->
-  <node name="attach_marker" pkg="gazebo_ros_link_attacher" type="aruco_robot_attach.py"/>
-  
 </launch>
