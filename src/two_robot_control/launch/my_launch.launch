@@ -11,7 +11,7 @@
   <!-- Name of the world -->
   <arg name="world"                                 default="empty"/> <!--turtlebot3_autorace-->
   <!-- Path to the world file -->
-  <arg name="world_file"                            default="$(find mrob_gazebo)/worlds/$(arg world).world"/>
+  <arg name="world_file"                            default="$(find mrob_highlevel_controller)/worlds/singlePillar.world"/>
 
   <!-- Start paused -->
   <arg name="paused"                                default="false"/>
@@ -21,7 +21,6 @@
   <arg name="debug"                                 default="false"/>
   <!-- Verbose mode -->
   <arg name="verbose"                               default="true"/>
-
   <!-- Enable/disable Gazebo GUI -->
   <arg name="run_gui"                               default="true"/>
 
@@ -36,14 +35,14 @@
     <arg name="verbose"           value="$(arg verbose)"/>
   </include>
 
-  <!-- 1st ROBOT ARGUMENTS -->
+  <!-- 1st ROBOT ARGUMENTS: leader -->
   <include file="$(find two_robot_control)/launch/both_robots.launch">
     <arg name="robot_name" value="leader"/>
     <arg name="x_pos"         value = "2.0"/>
     <arg name="y_pos"         value = "2.0"/>
   </include>
 
-  <!-- 2nd ROBOT ARGUMENTS -->
+  <!-- 2nd ROBOT ARGUMENTS: follower -->
   <include file="$(find two_robot_control)/launch/both_robots.launch">
     <arg name="robot_name" value="follower"/>
     <arg name="x_pos"         value = "1.0"/>

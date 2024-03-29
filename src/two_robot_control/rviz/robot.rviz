@@ -6,7 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Image1
+         - /Image1
+
       Splitter Ratio: 0.5
     Tree Height: 355
   - Class: rviz/Selection
@@ -64,6 +65,10 @@ Visualization Manager:
       Transport Hint: raw
       Unreliable: false
       Value: true
+      
+
+
+
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
