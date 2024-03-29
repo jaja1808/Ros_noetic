@@ -1,8 +1,0 @@
-prefix=/home/esirem/Documents/Project_ws/catkin_ws/install
-
-Name: mrob_control
-Description: Description of mrob_control
-Version: 0.0.2
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/esirem/Documents/Project_ws/catkin_ws/install
-
-Name: mrob_description
-Description: Description of mrob_description
-Version: 0.2.0
-Cflags: 
-Libs: -L${prefix}/lib -lmrob_description
-Requires: xacro hector_gazebo_plugins
